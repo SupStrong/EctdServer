@@ -1,0 +1,64 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "admin",
+    "host": "localhost",
+    "port":"3306",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "dialectOptions": {
+      "dateStrings": true,
+      "typeCast": true
+    },
+    "define": {
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      },
+      "timestamps": true
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": "123456",
+    "database": "admin",
+    "host": "localhost",
+    "port":"3306",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "dialectOptions": {
+      "dateStrings": true,
+      "typeCast": true
+    },
+    "define": {
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      },
+      "timestamps": true
+    },
+    "logging": false
+  },
+  "production": {
+    "username": "root",
+    "password": "123456",
+    "database": "admin",
+    "host": "localhost",
+    "port":"3306",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "dialectOptions": {
+      "dateStrings": true,
+      "typeCast": true
+    },
+    "define": {
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      },
+      "timestamps": true
+    },
+    "logging": false
+  }
+}

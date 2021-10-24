@@ -1,0 +1,23 @@
+http://78.108.103.11/MIRROR/ftp/GraphicsMagick/
+http://78.108.103.11/MIRROR/ftp/GraphicsMagick/
+解压GraphicsMagick-1.3.36.tar.gz文件，执行以下命令
+
+cd /www/wwwroot/api.zjinhc.cn/GraphicsMagick-1.3.36
+./configure --prefix=/www/wwwroot/api.zjinhc.cn/GraphicsMagick-1.3.36
+make
+make install
+gm
+
+在/etc/profile
+添加如下内容
+
+export GMAGICK_HOME="/www/wwwroot/api.zjinhc.cn/GraphicsMagick-1.3.36"
+export PATH="$GMAGICK_HOME/bin:$PATH"
+LD_LIBRARY_PATH=$GMAGICK_HOME/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+
+或者在/etc/profile.d 粘贴GraphicsMagick.sh文件
+
+在/usr/bin目录粘贴压缩包内bin/gm文件
+
+cp /usr/local/GraphicsMagick-1.3.25/bin/gm /usr/bin/

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <style>
+        *{
+            font-family: "Microsoft YaHei UI";
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body,html{
+            height: 100%;
+        }
+        body{
+            background: #fbfbfb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+        .card{
+            width: 825px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .title{
+            font-size: 90px;
+            color: #35495e;
+        }
+        .title span{
+            color: #41b883;
+        }
+        h1{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <p class="title">CLOUD - <span>ApiServer</span></p>
+        <h1>running</h1>
+    </div>
+</body>
+<script>
+    let watermark = {}
+    let setWatermark = (str) => {
+        let id = '1.23452384164.123412415'
+
+        if (document.getElementById(id) !== null) {
+            document.body.removeChild(document.getElementById(id))
+        }
+
+        let can = document.createElement('canvas')
+        can.width = 160
+        can.height = 180
+
+        let cans = can.getContext('2d')
+        cans.rotate(-40 * Math.PI / 180)
+        cans.font = '14px Vedana'
+        cans.fillStyle = 'rgba(185,185,185,0.4)'
+        cans.textAlign = 'left'
+        cans.textBaseline = 'Middle'
+        cans.fillText(str, can.width / 16, can.height / 2)
+
+        let div = document.createElement('div')
+        div.id = id
+        div.style.pointerEvents = 'none'
+        div.style.top = '70px'
+        div.style.left = '0px'
+        div.style.position = 'fixed'
+        div.style.zIndex = '-1'
+        div.style.width = document.documentElement.clientWidth - 10 + 'px'
+        div.style.height = document.documentElement.clientHeight - 100 + 'px'
+        div.style.background = 'url(' + can.toDataURL('image/png') + ') left top repeat'
+        document.body.appendChild(div)
+        return id
+    }
+
+    // 该方法只允许调用一次
+    watermark.set = (str) => {
+        let id = setWatermark(str)
+        setInterval(() => {
+            if (document.getElementById(id) === null) {
+                id = setWatermark(str)
+            }
+        }, 500)
+        window.onresize = () => {
+            setWatermark(str)
+        }
+    }
+    watermark.set('<%=name%>')
+</script>
+</html>

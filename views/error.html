@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发生了错误<%=error.error.status%></title>
+</head>
+<style>
+    *{
+        font-family: "Microsoft YaHei UI";
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .code{
+        line-height: 200px;
+        font-size: 100px;
+        padding: 0 30px;
+        background-color: #ffd459;
+        color: #636363;
+        position: relative;
+    }
+    .url{
+        position: absolute;
+        font-size: 34px;
+        opacity: 0.4;
+        right: 30px;
+        bottom: 30px;
+        line-height: 30px;
+        color: #000;
+    }
+    .error{
+        width: 100%;
+        background: #eee;
+    }
+    h1{
+        background: #ffcc13;
+        color: #636363;
+        padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+    pre{
+        padding:20px 10px;
+        background: #e05555;
+        color: #fff;
+    }
+</style>
+<body>
+<p class="code">
+    <%=error.error.status%>
+    <span class="url"><%=error.url%></span>
+</p>
+<h1>
+    <span><%=message%></span>
+    <span>ZJINH</span>
+</h1>
+<% if (error.error.stack) { %>
+    <div class="error">
+        <pre>
+            <%=error.error.stack%>
+        </pre>
+    </div>
+<% } %>
+
+</body>
+</html>
