@@ -44,7 +44,7 @@
     "username": "root",
     "password": "alliance",
     "database": "admin",
-    "host": "localhost",
+    "host": "118.31.70.36",
     "port":"3306",
     "dialect": "mysql",
     "timezone": "+08:00",

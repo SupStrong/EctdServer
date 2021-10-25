@@ -1,16 +1,16 @@
 {
   "development": {
-    "host": "118.31.70.36",
+    "host": "127.0.0.1",
     "port": 6379,
     "password": "123456"
   },
   "test": {
-    "host": "118.31.70.36",
+    "host": "127.0.0.1",
     "port": 6379,
     "password": "123456"
   },
   "production": {
-    "host": "118.31.70.36",
+    "host": "127.0.0.1",
     "port": 6379,
     "password": "123456"
   }
