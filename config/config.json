@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "123456",
-    "database": "admin",
+    "database": "admin", 
     "host": "118.31.70.36",
     "port":"3306",
     "dialect": "mysql",
