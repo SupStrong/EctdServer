@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "set NODE_ENV=development&& nodemon ./bin/www",
+    "dev": "set NODE_ENV=development&& node ./bin/www",
     "test": "nodemon ./bin/test",
     "server": "node ./bin/server"
   },
