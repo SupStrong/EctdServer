@@ -384,7 +384,7 @@ module.exports={
 		let data=global.getData(req);
 		let userId=req.userInfo.id;
 		let page=data.page||1;
-		let limit=data.limit||50;
+		let limit=data.limit|| ;
 		let parentId=data.parentId||1;
 		let category=data.category||'all';
 		let keyWord=data.keyWord||false;
@@ -440,9 +440,9 @@ module.exports={
 			},
 			//order:["name"],
 			attributes: diskAttributes,
-			limit:  limit,
+			// limit:  limit,
 			distinct:true,
-			offset: (page - 1) * limit
+			// offset: (page - 1) * limit
 		}).then((rs)=>{
 			if(keyWord){
 				let count=0;
