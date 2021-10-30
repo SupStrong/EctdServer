@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .G-width-50{
+    width: calc(100% / 2);
+  }
+  .G-height-50{
+    height: calc(100% / 2);
+  }
+  .G-width-33{
+    width: calc(100% / 3);
+  }
+  .G-height-33{
+    height: calc(100% / 3);
+  }
+  .G-width-25{
+    width: calc(100% / 4);
+  }
+  .G-height-25{
+    height: calc(100% / 4);
+  }
+  .G-height-66{
+    height: calc((100% / 3) * 2);
+  }
+  .G-width-100{
+    width: 100%;
+  }
+  .G-height-100{
+    height: 100%;
+  }
+  .G-height-40{
+    height: 40%;
+  }
+  .G-height-60{
+    height: 60%;
+  }
+  .div1{
+    width:375px;
+    height:460px;
+    border: 1px solid red;
+    box-sizing:border-box;
+  }
+  div{
+    box-sizing:border-box;
+    float: left;
+  }
+</style>
+<body>
+  <script>
+    [1,2,3,4,5,6,7]
+    // 
+    // 30篇 九宫格
+    // 120篇 实拍图
+    // 30篇 精品拍
+
+  </script>
+  <div class="main">
+    <div class="div1" data-type="1" hidden>
+      <div class="G-width-50 G-height-50" data-dom="true"></div>
+      <div class="G-width-50 G-height-50" data-dom="true"></div>
+      <div class="G-width-50 G-height-50" data-dom="true"></div>
+      <div class="G-width-50 G-height-50" data-dom="true"></div>
+    </div>
+    <div class="div1" data-type="2" hidden>
+      <div class="G-width-100 G-height-33" data-dom="true"></div>
+      <div class="G-width-100 G-height-33" data-dom="true"></div>
+      <div class="G-width-100 G-height-33" data-dom="true"></div>
+    </div>
+    <div class="div1" data-type="3" hidden>
+      <div class="G-width-100 G-height-50" data-dom="true"></div>
+      <div class="G-width-100 G-height-50" data-dom="true"></div>
+    </div>
+    <div class="div1" data-type="4" hidden>
+      <div class="G-width-50 G-height-50" data-dom="true"></div>
+      <div class="G-width-50 G-height-50" data-dom="true"></div>
+      <div class="G-width-100 G-height-50" data-dom="true"></div>
+    </div>
+    <div class="div1" data-type="5" hidden>
+      <div class="G-width-100 G-height-66" data-dom="true"></div>
+      <div class="G-width-50 G-height-33" data-dom="true"></div>
+      <div class="G-width-50 G-height-33" data-dom="true"></div>
+    </div>
+    <div class="div1" data-type="6" hidden>
+      <div class="G-width-50 G-height-50" data-dom="true"></div>
+      <div class="G-width-50 G-height-50" data-dom="true"></div>
+      <div class="G-width-50 G-height-50">
+        <div  class="G-width-100 G-height-50" data-dom="true"></div>
+        <div  class="G-width-100 G-height-50" data-dom="true"></div>
+      </div>
+      <div class="G-width-50 G-height-50" data-dom="true"></div>
+    </div>
+    <div class="div1" data-type="7">
+      <div class="G-width-100 G-height-60" data-dom="true"></div>
+      <div class="G-width-50 G-height-40" data-dom="true"></div>
+      <div class="G-width-50 G-height-40" data-dom="true"></div>
+    </div>
+  </div>
+</body>
+</html>
