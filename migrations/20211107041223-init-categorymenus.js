@@ -2,7 +2,8 @@
 
 module.exports = {
 	up: async (queryInterface, Sequelize) => {
-		return queryInterface.createTable('classifys', { 
+		
+		return queryInterface.createTable('categorymenus', { 
 			id : {
 				type: Sequelize.INTEGER(11),
 				primaryKey: true, 
@@ -10,7 +11,7 @@ module.exports = {
 			},
 			name:{
 				type:Sequelize.STRING,
-				comment:"分类名称",
+				comment:"品牌名称",
 				notNull:true
 			}
 		});

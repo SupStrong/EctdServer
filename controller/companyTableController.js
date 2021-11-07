@@ -1,11 +1,11 @@
 const tool=require("../utils/tool");
 const path=require('path');
-const sampleModels  = require('../models').sample;
+const companyTableModels  = require('../models').companyTable;
 
 module.exports={
 	list:function (req, res, next) {
 		let data=global.getData(req);
-		sampleModels.findAll({
+		companyTableModels.findAll({
 			where: {
 				...data
 			},
@@ -23,7 +23,7 @@ module.exports={
 	create:function (req, res, next) {
 		let data=global.getData(req);
 		console.log(data,"data");
-		sampleModels.create(data).then((rs)=>{
+		companyTableModels.create(data).then((rs)=>{
 			if(rs){
 				resHandle.init(res, {data: rs});
 			}else{
@@ -35,7 +35,7 @@ module.exports={
 	},
 	update:function (req, res, next) {
 		let data=global.getData(req);
-		sampleModels.findAll({
+		companyTableModels.findAll({
 			where: {
 				...data
 			},
@@ -52,19 +52,14 @@ module.exports={
 	},
 	delete:function (req, res, next) {
 		let data=global.getData(req);
-		sampleModels.findAll({
-			where: {
-				...data
-			},
-			attributes: { exclude: ['createdAt','updatedAt','sex'] }, //过滤属性
-		}).then(function(rs){
-			if(rs){
-				resHandle.init(res, {data: rs});
-			}else{
-				resHandle.error(res,'登录失败,用户不存在');
+		companyTableModels.destroy({
+			where:{
+				userId:data.id
 			}
-		}).catch((error)=>{
-			resHandle.error(res,error);
+		}).then((res)=>{
+			resHandle.init(res, {data: rs});
+		}).catch((e)=>{
+			resHandle.error(res,e);
 		});
 	},
 };

@@ -1,14 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-	const classify = sequelize.define('classify', {
+	const companyTable = sequelize.define('companyTable', {
 		name:{
 			type:DataTypes.STRING,
-			comment:"品牌名称",
+			comment:"含量",
 			notNull:true
 		}
 	}, {});
-	classify.associate = function(models) {
+	companyTable.associate = function(models) {
 		// associations can be defined here
 	};
-	return classify;
+	return companyTable;
 };

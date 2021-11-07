@@ -2,7 +2,8 @@
 
 module.exports = {
 	up: async (queryInterface, Sequelize) => {
-		return queryInterface.createTable('samples', {  
+		
+		return queryInterface.createTable('samples', { 
 			id : {
 				type: Sequelize.INTEGER(11),
 				primaryKey: true, 
@@ -17,22 +18,17 @@ module.exports = {
 				type:Sequelize.STRING,
 				comment:"别称",
 			},
-			brandName:{
+			brandId:{
 				type:Sequelize.STRING,
-				comment:"品牌名称"	
+				comment:"品牌id"	
 			},
 			content: {
 				type:Sequelize.STRING,
 				comment:"含量",
 			},
-			classify:{
+			categoryId:{
 				type:Sequelize.STRING,
-				comment:"分类",
-			},
-			nationality:{
-				type:Sequelize.STRING,
-				comment:"国籍",
-				notNull: true,
+				comment:"分类id",
 			},
 			price:{
 				type:Sequelize.INTEGER,
@@ -51,7 +47,6 @@ module.exports = {
 				comment:"图片",
 				notNull: true,
 			},
-			
 		});
 	},
 

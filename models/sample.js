@@ -8,24 +8,19 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		nickName:{
 			type:DataTypes.STRING,
-			comment:"别称别称",
+			comment:"别称",
 		},
-		brandName:{
+		brandId:{
 			type:DataTypes.STRING,
-			comment:"品牌名称"	
+			comment:"品牌id"	
 		},
 		content: {
 			type:DataTypes.STRING,
 			comment:"含量",
 		},
-		classify:{
+		categoryId:{
 			type:DataTypes.STRING,
-			comment:"分类",
-		},
-		nationality:{
-			type:DataTypes.STRING,
-			comment:"国籍",
-			notNull: true,
+			comment:"分类id",
 		},
 		price:{
 			type:DataTypes.INTEGER,

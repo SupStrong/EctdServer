@@ -1,11 +1,11 @@
 const tool=require("../utils/tool");
 const path=require('path');
-const sampleModels  = require('../models').sample;
+const brandModels  = require('../models').brand;
 
 module.exports={
 	list:function (req, res, next) {
 		let data=global.getData(req);
-		sampleModels.findAll({
+		brandModels.findAll({
 			where: {
 				...data
 			},
@@ -22,10 +22,11 @@ module.exports={
 	},
 	create:function (req, res, next) {
 		let data=global.getData(req);
-		console.log(data,"data");
-		sampleModels.create(data).then((rs)=>{
+		brandModels.create(data).then((rs)=>{
 			if(rs){
 				resHandle.init(res, {data: rs});
+				
+				resHandle.error(res,"文件添加失败");
 			}else{
 				resHandle.error(res,"文件添加失败");
 			}
@@ -35,7 +36,7 @@ module.exports={
 	},
 	update:function (req, res, next) {
 		let data=global.getData(req);
-		sampleModels.findAll({
+		brandModels.findAll({
 			where: {
 				...data
 			},
@@ -52,7 +53,7 @@ module.exports={
 	},
 	delete:function (req, res, next) {
 		let data=global.getData(req);
-		sampleModels.findAll({
+		brandModels.findAll({
 			where: {
 				...data
 			},
