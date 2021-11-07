@@ -5,24 +5,21 @@ const categorymenuModels  = require('../models').categorymenu;
 module.exports={
 	list:function (req, res, next) {
 		let data=global.getData(req);
-		categorymenuModels.findAll({
-			where: {
-				...data
-			},
-			attributes: { exclude: ['createdAt','updatedAt','sex'] }, //过滤属性
-		}).then(function(rs){
-			if(rs){
-				resHandle.init(res, {data: rs});
-			}else{
-				resHandle.error(res,'登录失败,用户不存在');
-			}
+		let page = parseInt(data.page) || 1;
+		let limit = parseInt(data.limit) || 10;
+		categorymenuModels.findAndCountAll({
+			where:{},
+			limit: limit,
+			distinct:true,
+			offset: (page - 1) * limit
+		}).then((rs)=>{
+			resHandle.init(res,{data: rs});
 		}).catch((error)=>{
 			resHandle.error(res,error);
 		});
 	},
 	create:function (req, res, next) {
 		let data=global.getData(req);
-		console.log(data,"data");
 		categorymenuModels.create(data).then((rs)=>{
 			if(rs){
 				resHandle.init(res, {data: rs});
