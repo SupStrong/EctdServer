@@ -30,7 +30,7 @@ module.exports={
 			let newArr = [];
 			rs.rows.forEach((item,index)=>{
 				let object = {
-					id: 4,
+					id: item.id,
 					name: item.name,
 					brandId: item.brandId,
 					content: item.content,
@@ -39,15 +39,13 @@ module.exports={
 					effect: item.effect,
 					detail: item.detail,
 					image: item.image,
-					brandName:item.brand.name,
-					nationality:item.brand.nationality,
-					nickName:item.brand.nickName,
-					categoryName:item.categorymenu.name
+					brandName:item.brand != null ? item.brand.name : '',
+					nationality:item.brand != null ? item.brand.nationality : '',
+					nickName:item.brand != null ? item.brand.nickName : '',
+					categoryName:item.categorymenu != null ? item.categorymenu.name : ''
 				};
-				console.log(object,"object");
 				newArr.push(object);
 			});
-			console.log(newArr,"newArrnewArr");
 			resHandle.init(res,{data: {count:rs.count,rows:newArr}});
 		}).catch((error)=>{
 			resHandle.error(res,error);

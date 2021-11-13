@@ -1,26 +1,43 @@
 const tool=require("../utils/tool");
 const path=require('path');
+const imgTextModels  = require('../models').imgText;
 const categorymenuModels  = require('../models').categorymenu;
 
 module.exports={
 	list:function (req, res, next) {
 		let data=global.getData(req);
 		let page = parseInt(data.page) || 1;
-		let limit = parseInt(data.limit) || 1000;
-		categorymenuModels.findAndCountAll({
+		let limit = parseInt(data.limit) || 10;
+		imgTextModels.belongsTo(categorymenuModels, { foreignKey: 'categoryId', targetKey: 'id' });
+		imgTextModels.findAndCountAll({
 			where:{},
+			include:[{
+				model:categorymenuModels,
+				required: false,
+				attributes: { exclude: ['createdAt','updatedAt'] },
+			}],
 			limit: limit,
 			distinct:true,
 			offset: (page - 1) * limit
 		}).then((rs)=>{
-			resHandle.init(res,{data: rs});
+			let newArr = [];
+			rs.rows.forEach((item,index)=>{
+				let object = {
+					id:item.id,
+					name: item.name,
+					categoryId:item.categoryId,
+					categoryName:item.categorymenu != null ? item.categorymenu.name : ''
+				};
+				newArr.push(object);
+			});
+			resHandle.init(res,{data: {count:rs.count,rows:newArr}});
 		}).catch((error)=>{
 			resHandle.error(res,error);
 		});
 	},
 	create:function (req, res, next) {
 		let data=global.getData(req);
-		categorymenuModels.create(data).then((rs)=>{
+		imgTextModels.create(data).then((rs)=>{
 			if(rs){
 				resHandle.init(res, {data: rs});
 			}else{
@@ -32,7 +49,7 @@ module.exports={
 	},
 	update:function (req, res, next) {
 		let data=global.getData(req);
-		categorymenuModels.findAll({
+		imgTextModels.findAll({
 			where: {
 				...data
 			},
@@ -49,7 +66,7 @@ module.exports={
 	},
 	delete:function (req, res, next) {
 		let data=global.getData(req);
-		categorymenuModels.destroy({
+		imgTextModels.destroy({
 			where:{
 				id:data.id
 			}

@@ -27,6 +27,7 @@ router.post('/share/create',diskController.shareCreate);//分享文件
 router.post('/share/cancel',diskController.shareCancel);//取消分享文件
 router.post('/share/save',diskController.saveShare);//保存分享文件
 router.get('/share/list',diskController.shareFileList);//获取分享文件
-
+router.post('/search',diskController.search);//三级查找图片
+router.post('/isfolder/list',diskController.listFolder);//三级查找图片
 module.exports = router;
 
