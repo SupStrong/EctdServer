@@ -381,12 +381,11 @@ module.exports = {
 			}
 		});
 	},
-<<<<<<< HEAD
 	list:function (req,res,next) {
 		let data=global.getData(req);
 		let userId=req.userInfo.id;
 		let page=data.page||1;
-//		let limit=data.limit||50;
+		//		let limit=data.limit||50;
 		let parentId=data.parentId||1;
 		let category=data.category||'all';
 		let keyWord=data.keyWord||false;
@@ -442,15 +441,6 @@ module.exports = {
 			},
 			//order:["name"],
 			attributes: diskAttributes,
-<<<<<<< HEAD
-//			limit:  limit,
-			distinct:true,
-		}).then((rs)=>{
-			if(keyWord){
-				let count=0;
-				if(rs.rows.length) {
-					let result=[];
-=======
 			// limit:  limit,
 			distinct: true,
 			// offset: (page - 1) * limit
@@ -459,7 +449,6 @@ module.exports = {
 				let count = 0;
 				if (rs.rows.length) {
 					let result = [];
->>>>>>> 36a38317fad44f203cf0546d49720c789458bcad
 					rs.rows.forEach((item, index) => {
 						result.push(item.dataValues);
 						fullyAddress(item.parentId, [], (address) => {
