@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "set NODE_ENV=development&& nodemon ./bin/www",
-    "test": "nodemon ./bin/test",
-    "server": "node ./bin/server"
+    "dev": "node-dev ./bin/www",
+    "sup": "supervisor ./bin/www",
+    "pm2": "pm2 start ecosystem.config.js"
   },
   "dependencies": {
     "adm-zip-iconv": "^0.4.9",
