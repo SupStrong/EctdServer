@@ -75,6 +75,10 @@ module.exports = (sequelize, DataTypes) => {
 			type:DataTypes.STRING,//分享密码
 			comment:"分享密码"
 		},
+		parentName:{
+			type:DataTypes.STRING,//分享密码
+			comment:"父级名称"
+		}
 	}, {});
 	disk.associate = function(models) {
 		// associations can be defined here
