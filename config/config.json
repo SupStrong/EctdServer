@@ -4,7 +4,7 @@
     "password": "alliance",
     "database": "admin",
     "host": "118.31.70.36",
-    "port":"3306",
+    "port":"8080",
     "dialect": "mysql",
     "timezone": "+08:00",
     "dialectOptions": {
@@ -24,7 +24,7 @@
     "password": "alliance",
     "database": "admin",
     "host": "118.31.70.36",
-    "port":"3306",
+    "port":"8080",
     "dialect": "mysql",
     "timezone": "+08:00",
     "dialectOptions": {
@@ -45,7 +45,7 @@
     "password": "alliance",
     "database": "admin",
     "host": "118.31.70.36",
-    "port":"3306",
+    "port":"8080",
     "dialect": "mysql",
     "timezone": "+08:00",
     "dialectOptions": {
