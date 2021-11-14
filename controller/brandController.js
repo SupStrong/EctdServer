@@ -20,16 +20,24 @@ module.exports={
 	},
 	create:function (req, res, next) {
 		let data=global.getData(req);
-		brandModels.create(data).then((rs)=>{
-			if(rs){
-				resHandle.init(res, {data: rs});
-				
-				resHandle.error(res,"文件添加失败");
-			}else{
-				resHandle.error(res,"文件添加失败");
+		brandModels.findOne({
+			where: {
+				name: data.name
 			}
-		}).catch((error)=>{
-			resHandle.error(res,error);
+		}).then((rs) => {
+			if(rs){
+				resHandle.error(res,"已有此名称");
+			}else{
+				brandModels.create(data).then((rs)=>{
+					if(rs){
+						resHandle.init(res, {data: rs});
+					}else{
+						resHandle.error(res,"文件添加失败");
+					}
+				}).catch((error)=>{
+					resHandle.error(res,error);
+				});
+			}
 		});
 	},
 	update:function (req, res, next) {

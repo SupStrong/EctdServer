@@ -26,7 +26,7 @@ module.exports={
 			}
 		}).then((rs) => {
 			if(rs){
-				resHandle.error(res, '此含量已存在！');
+				resHandle.error(res,"已有此名称");
 			}else{
 				companyTableModels.create(data).then((rs)=>{
 					if(rs){
@@ -38,8 +38,6 @@ module.exports={
 					resHandle.error(res,error);
 				});
 			}
-		}).catch((error) => {
-			resHandle.error(res, error);
 		});
 	},
 	update:function (req, res, next) {
