@@ -20,15 +20,26 @@ module.exports={
 	},
 	create:function (req, res, next) {
 		let data=global.getData(req);
-		console.log(data,"data");
-		companyTableModels.create(data).then((rs)=>{
-			if(rs){
-				resHandle.init(res, {data: rs});
-			}else{
-				resHandle.error(res,"文件添加失败");
+		companyTableModels.findOne({
+			where: {
+				name: data.name
 			}
-		}).catch((error)=>{
-			resHandle.error(res,error);
+		}).then((rs) => {
+			if(rs){
+				resHandle.error(res, '此含量已存在！');
+			}else{
+				companyTableModels.create(data).then((rs)=>{
+					if(rs){
+						resHandle.init(res, {data: rs});
+					}else{
+						resHandle.error(res,"文件添加失败");
+					}
+				}).catch((error)=>{
+					resHandle.error(res,error);
+				});
+			}
+		}).catch((error) => {
+			resHandle.error(res, error);
 		});
 	},
 	update:function (req, res, next) {
