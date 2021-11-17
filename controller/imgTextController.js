@@ -7,7 +7,7 @@ module.exports={
 	list:function (req, res, next) {
 		let data=global.getData(req);
 		let page = parseInt(data.page) || 1;
-		let limit = parseInt(data.limit) || 10;
+		let limit = parseInt(data.limit) || 1000;
 		imgTextModels.belongsTo(categorymenuModels, { foreignKey: 'categoryId', targetKey: 'id' });
 		imgTextModels.findAndCountAll({
 			where:{},
