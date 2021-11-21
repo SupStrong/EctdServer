@@ -19,7 +19,7 @@ module.exports={
 		});
 	},
 	create:function (req, res, next) {
-		let data=global.getData(req);
+		let data=global.getData(req);	
 		companyTableModels.findOne({
 			where: {
 				name: data.name
