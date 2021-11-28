@@ -14,8 +14,11 @@ module.exports={
 			include:[{
 				model:categorymenuModels,
 				required: false,
-				attributes: { exclude: ['createdAt','updatedAt'] },
+				attributes: { exclude: ['createdAt','updatedAt'] }
 			}],
+			order: [
+				['id', 'DESC']
+			],
 			limit: limit,
 			distinct:true,
 			offset: (page - 1) * limit
