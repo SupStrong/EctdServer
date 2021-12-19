@@ -439,8 +439,10 @@ module.exports = {
 				userId: userId,
 				...query
 			},
-			//order:["name"],
 			attributes: diskAttributes,
+			order:[
+				["name","ASC"]
+			],
 			// limit:  limit,
 			distinct: true,
 			// offset: (page - 1) * limit
@@ -485,6 +487,9 @@ module.exports = {
 			where: {
 				parentName: data.parentName,
 			},
+			order: [
+				['name', 'DESC']
+			],
 		}).then((rs) => {
 			resHandle.init(res, { data: rs });
 		}).catch((error) => {
@@ -504,6 +509,9 @@ module.exports = {
 					where: {
 						parentId: rs[0].id,
 					},
+					order: [
+						['name', 'DESC']
+					],
 					distinct: true,
 				}).then((c_rs) => {
 					resHandle.init(res, { data: {
