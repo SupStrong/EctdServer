@@ -19,11 +19,6 @@ module.exports = (sequelize, DataTypes) => {
 			validate: {
 				notEmpty:{
 					msg:'文件/文件夹名称不能为空'
-				},
-				notContains(value){
-					if(tool.validateFileName(value)){
-						throw '文件/文件夹名称不能包含【\\\\\\\\/:*?\\"<>|】';
-					}
 				}
 			}
 		},

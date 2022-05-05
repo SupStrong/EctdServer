@@ -244,7 +244,8 @@ function getFileType (name) {
 	for (let type in typeList) {
 		let extNames = typeList[type];
 		for (let i = 0; i < extNames.length; i++) {
-			if (name === '.' + extNames[i]) {
+			let newName = name.split('.').slice(-1)[0];
+			if (newName === extNames[i]) {
 				result = type;
 				break;
 			}
@@ -260,10 +261,11 @@ async function addFile (req, res) {
 	let name = data.name; //文件名称
 	let md5 = data.md5;//文件md5
 	let size = data.size;//文件大小
-	let extname = path.extname(name).toLowerCase();
+	let extname = data.extname;
 	let id = tool.random(10);
 	let fileType = getFileType(extname);
-	let fileUrl = md5 + extname;
+	let fileUrl = extname;
+	let newExtname = '.' + extname.split('.').slice(-1)[0];
 	let obj = {
 		id: id,
 		parentId: data.parentId || 1,
@@ -272,7 +274,7 @@ async function addFile (req, res) {
 		name: name,
 		md5: md5,
 		size: size,
-		extName: extname,
+		extName: newExtname,
 		content: fileUrl,
 		fileType: fileType
 	};
@@ -550,9 +552,9 @@ module.exports = {
 		
 		let data = global.getData(req);
 		let userId = req.userInfo.id;
-		if (data.name === "样品" && data.type !== 'news') {
-			return resHandle.error(res, '在这儿不能创建样品文件夹');
-		}
+		// if (data.name === "样品" && data.type !== 'news') {
+		// 	return resHandle.error(res, '在这儿不能创建样品文件夹');
+		// }
 		if (!data.parentId || data.parentId.length === 0) {
 			return resHandle.error(res, '缺少参数');
 		}
@@ -565,7 +567,7 @@ module.exports = {
 					id: id,
 					userId: req.userInfo.id,
 					parentId: data.parentId || 0,
-					parentName: data.parentName || '',
+					// parentName: data.parentName || '',
 					name: data.name,
 				}).then((rs) => {
 					if (rs) {
