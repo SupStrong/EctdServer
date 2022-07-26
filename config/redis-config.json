@@ -2,16 +2,16 @@
   "development": {
     "host": "106.13.238.154",
     "port": 6379,
-    "password": "123456"
+    "password": "liu123456!"
   },
   "test": {
     "host": "106.13.238.154",
     "port": 6379,
-    "password": "123456"
+    "password": "liu123456!"
   },
   "production": {
     "host": "106.13.238.154",
     "port": 6379,
-    "password": "123456"
+    "password": "liu123456!"
   }
 }
