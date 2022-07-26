@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "liu123456!",
+    "password": "admin123",
     "database": "admin",
     "host": "106.13.238.154",
     "port":"3306",
@@ -21,7 +21,7 @@
   },
   "test": {
     "username": "root",
-    "password": "liu123456!",
+    "password": "admin123",
     "database": "admin",
     "host": "106.13.238.154",
     "port":"3306",
@@ -42,7 +42,7 @@
   },
   "production": {
     "username": "root",
-    "password": "liu123456!",
+    "password": "admin123",
     "database": "admin",
     "host": "106.13.238.154",
     "port":"3306",
