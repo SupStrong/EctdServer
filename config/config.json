@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "123456",
+    "password": " liu123456!",
     "database": "admin",
-    "host": "127.0.0.1",
+    "host": "106.13.238.154",
     "port":"3306",
     "dialect": "mysql",
     "timezone": "+08:00",
@@ -21,9 +21,9 @@
   },
   "test": {
     "username": "root",
-    "password": "123456",
+    "password": " liu123456!",
     "database": "admin",
-    "host": "127.0.0.1",
+    "host": "106.13.238.154",
     "port":"3306",
     "dialect": "mysql",
     "timezone": "+08:00",
@@ -42,9 +42,9 @@
   },
   "production": {
     "username": "root",
-    "password": "123456",
+    "password": " liu123456!",
     "database": "admin",
-    "host": "127.0.0.1",
+    "host": "106.13.238.154",
     "port":"3306",
     "dialect": "mysql",
     "timezone": "+08:00",
